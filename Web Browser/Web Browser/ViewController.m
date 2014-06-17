@@ -17,7 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	[self.webView setDelegate:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -26,7 +26,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)goButton:(id)sender {
+- (IBAction)goButton:(id)sender { //loads the web page
     NSString *urlString = self.addressTextField.text;
     NSURL *url;
     
@@ -38,7 +38,7 @@
     NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:url];
     [self.webView loadRequest:urlRequest];
     
-     [self.addressTextField setText];
+
 }
 
 - (IBAction)goBack:(id)sender {
@@ -46,5 +46,9 @@
 }
 - (IBAction)goForwards:(id)sender {
     [self.webView goForward];
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView { //displays web page
+    [self.addressTextField setText:webView.request.URL.absoluteString];
 }
 @end

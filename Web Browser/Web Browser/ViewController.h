@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController <UIWebViewDelegate>
-- (IBAction)goButton:(id)sender;
-- (IBAction)goBack:(id)sender;
-- (IBAction)goForwards:(id)sender;
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property (weak, nonatomic) IBOutlet UITextField *addressTextField;
+- (IBAction)goButton:(id)sender; //go button
+- (IBAction)goBack:(id)sender; //back button
+- (IBAction)goForwards:(id)sender; //forward button
+@property (weak, nonatomic) IBOutlet UIWebView *webView; //webview
+@property (weak, nonatomic) IBOutlet UITextField *addressTextField; //address field 
 @end
